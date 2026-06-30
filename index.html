@@ -9,7 +9,7 @@
       --bg-1: #e9f8ef;
       --bg-2: #d8f3df;
       --ink: #153126;
-      --muted: #3d6352;
+      --muted: #2f5747;
       --accent: #1f8a4c;
       --accent-2: #2fb66a;
       --card: rgba(255, 255, 255, 0.82);
@@ -100,10 +100,38 @@
 
     .lead {
       margin: 0;
-      max-width: 55ch;
+      max-width: 62ch;
       color: var(--muted);
-      line-height: 1.8;
-      font-size: 1.03rem;
+      line-height: 1.9;
+      font-size: 1.06rem;
+    }
+
+    .steps {
+      margin: 20px 0 0;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .steps li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: start;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .steps strong {
+      color: var(--ink);
+      font-size: 0.94rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .actions {
@@ -135,6 +163,11 @@
 
     .btn:hover {
       transform: translateY(-2px);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid rgba(31, 138, 76, 0.35);
+      outline-offset: 3px;
     }
 
     .stats {
@@ -174,8 +207,24 @@
     }
 
     @media (max-width: 640px) {
+      .card {
+        padding: 22px;
+      }
+
+      .lead {
+        font-size: 1rem;
+      }
+
       .stats {
         grid-template-columns: 1fr;
+      }
+
+      .steps {
+        padding: 14px;
+      }
+
+      .steps li {
+        grid-template-columns: 24px 1fr;
       }
     }
   </style>
@@ -186,7 +235,12 @@
     <section class="card">
       <span class="tag">Git Tutorial</span>
       <h1>Hello, Git!</h1>
-      <p class="lead">これは git clone / commit / push のデモ用サイトです。練習用でも見た目は妥協せず、読みやすく心地よいページを目指してデザインしています。</p>
+      <p class="lead">これは git clone / commit / push のデモ用サイトです。操作の流れがひと目で分かるように、最小ステップで確認できる構成にしています。練習用でも読みやすさを重視したデザインです。</p>
+      <ol class="steps" aria-label="チュートリアルの流れ">
+        <li><strong>Step 1</strong><span>git clone でリポジトリを取得する</span></li>
+        <li><strong>Step 2</strong><span>変更を編集して git commit する</span></li>
+        <li><strong>Step 3</strong><span>git push で GitHub に反映する</span></li>
+      </ol>
       <div class="actions">
         <a class="btn btn-primary" href="#">チュートリアルを始める</a>
         <a class="btn btn-secondary" href="#">GitHub リポジトリを見る</a>
